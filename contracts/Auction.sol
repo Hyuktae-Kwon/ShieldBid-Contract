@@ -25,10 +25,10 @@ contract Auction {
         return isClosed;
     }
 
-    function addCommitment(string memory newCommitment) public {
+    function bid(string memory commitment) public {
         require(!isClosed, "Auction closed");
         require(msg.sender != consignorId, "Consignor cannot make a bid");
-        commitmentList[msg.sender] = newCommitment;
+        commitmentList[msg.sender] = commitment;
     }
 
     function getCommitment(address bidder) public view returns (string memory) {

@@ -34,30 +34,29 @@ describe("Auction", function () {
 
   it("bidders can add new commitments", async () => {
     const { auction, signers } = await deployAuctionFeature("Desktop");
-    await auction.connect(signers[1]).addCommitment("100");
+    await auction.connect(signers[1]).bid("100");
     const commitment = await auction.getCommitment(signers[1]);
     expect(commitment).to.equal("100");
   });
 
   it("bidders can get their commitment", async () => {
     const { auction, signers } = await deployAuctionFeature("Desktop");
-    await auction.connect(signers[1]).addCommitment("100");
+    await auction.connect(signers[1]).bid("100");
     const commitment = await auction.getCommitment(signers[1]);
     expect(commitment).to.equal("100");
   });
 
   it("only the newest bids are stored", async () => {
     const { auction, signers } = await deployAuctionFeature("Desktop");
-    await auction.connect(signers[1]).addCommitment("100");
-    await auction.connect(signers[1]).addCommitment("200");
+    await auction.connect(signers[1]).bid("100");
+    await auction.connect(signers[1]).bid("200");
     const commitment = await auction.getCommitment(signers[1]);
     expect(commitment).to.equal("200");
   });
 
   it("consignor cannot make a bid", async () => {
     const { auction, signers } = await deployAuctionFeature("Desktop");
-    await expect(auction.connect(signers[0]).addCommitment("100")).to.be
-      .reverted;
+    await expect(auction.connect(signers[0]).bid("100")).to.be.reverted;
   });
 
   it("the consignor can close an auction", async () => {
@@ -77,7 +76,6 @@ describe("Auction", function () {
   it("bidders cannot make a bid if the auction is closed", async () => {
     const { auction, signers } = await deployAuctionFeature("Desktop");
     await auction.closeAuction();
-    await expect(auction.connect(signers[1]).addCommitment("100")).to.be
-      .reverted;
+    await expect(auction.connect(signers[1]).bid("100")).to.be.reverted;
   });
 });
