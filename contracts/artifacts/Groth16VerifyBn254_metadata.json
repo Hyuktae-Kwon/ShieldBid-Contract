@@ -1,0 +1,190 @@
+{
+	"compiler": {
+		"version": "0.8.28+commit.7893614a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "getPairingResult",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pairingResult",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256[8]",
+						"name": "proof",
+						"type": "uint256[8]"
+					},
+					{
+						"internalType": "uint256[12]",
+						"name": "input",
+						"type": "uint256[12]"
+					},
+					{
+						"components": [
+							{
+								"components": [
+									{
+										"internalType": "uint256",
+										"name": "X",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "Y",
+										"type": "uint256"
+									}
+								],
+								"internalType": "struct Pairing.G1Point",
+								"name": "alpha1",
+								"type": "tuple"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint256[2]",
+										"name": "X",
+										"type": "uint256[2]"
+									},
+									{
+										"internalType": "uint256[2]",
+										"name": "Y",
+										"type": "uint256[2]"
+									}
+								],
+								"internalType": "struct Pairing.G2Point",
+								"name": "beta2",
+								"type": "tuple"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint256[2]",
+										"name": "X",
+										"type": "uint256[2]"
+									},
+									{
+										"internalType": "uint256[2]",
+										"name": "Y",
+										"type": "uint256[2]"
+									}
+								],
+								"internalType": "struct Pairing.G2Point",
+								"name": "gamma2",
+								"type": "tuple"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint256[2]",
+										"name": "X",
+										"type": "uint256[2]"
+									},
+									{
+										"internalType": "uint256[2]",
+										"name": "Y",
+										"type": "uint256[2]"
+									}
+								],
+								"internalType": "struct Pairing.G2Point",
+								"name": "delta2",
+								"type": "tuple"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint256",
+										"name": "X",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "Y",
+										"type": "uint256"
+									}
+								],
+								"internalType": "struct Pairing.G1Point[13]",
+								"name": "public_input",
+								"type": "tuple[13]"
+							}
+						],
+						"internalType": "struct Groth16VerifyBn254.VerifyingKey",
+						"name": "vk",
+						"type": "tuple"
+					}
+				],
+				"name": "verifyProof",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Groth16VerifyBn254.sol": "Groth16VerifyBn254"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Groth16VerifyBn254.sol": {
+			"keccak256": "0xd4e4c12731f806b2003d586061e3adfe5a08011b784d71a475bab40e1e6363a3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b27fe87702801b28b69edf8590f19c387e2e86d9bc6dfbef7006a0ecffdf09be",
+				"dweb:/ipfs/QmcHMtsLw5uwrkN2LjkiDZWP9ksutmW2qQizD78Qskaf1f"
+			]
+		},
+		"contracts/Pairing.sol": {
+			"keccak256": "0xe1c00fa479da613f7cdce6b06310ccad2126118b4eb93fa841d2c3ad9ac5d4d5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://962c0fb644fc23da1280409e79ee3433b7a93c8b8189fe3708bbd7b5b598c8f8",
+				"dweb:/ipfs/QmXRaEA59fqpFZB7QbjS55Jh2Dvxt9c73u5GJdBEu1KKK9"
+			]
+		}
+	},
+	"version": 1
+}

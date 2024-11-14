@@ -38,12 +38,18 @@ contract Groth16VerifyBn254 {
     Pairing.G2Point B;
     Pairing.G1Point C;
   }
-  
+
+  bool public pairingResult;
+
+  function getPairingResult() view public returns(bool){
+    return pairingResult;
+  }
+
   function verifyProof(
     uint256[8] memory proof,
     uint256[12] memory input,
     VerifyingKey memory vk
-  ) public view returns (bool) {
+  ) public  {
 
     Proof memory _proof;
     _proof.A = Pairing.G1Point(proof[0], proof[1]);
@@ -57,8 +63,8 @@ contract Groth16VerifyBn254 {
         require(input[i] < PRIME_Q, "verifier-gte-snark-scalar-field");
         vk_x = Pairing.add(vk_x, Pairing.scalar_mul(vk.public_input[i + 1], input[i]));
     }
-
-    return Pairing.pairing(
+    
+    pairingResult = Pairing.pairing(
         Pairing.negate(_proof.A),
         _proof.B,
         vk.alpha1,

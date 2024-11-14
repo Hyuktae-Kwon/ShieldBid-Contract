@@ -35,8 +35,7 @@ describe("SNARK", function () {
 
   it("Should return true", async () => {
     const { groth } = await loadFixture(deployGrothFeature);
-    expect(await groth.verifyProof(proof, verify_inputs, vkStruct)).to.equal(
-      true
-    );
+    await groth.verifyProof(proof, verify_inputs, vkStruct);
+    expect(true).to.equal(await groth.pairingResult());
   });
 });
