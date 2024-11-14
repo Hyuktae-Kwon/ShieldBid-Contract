@@ -33,7 +33,7 @@ describe("SNARK", function () {
     return { groth, owner };
   }
 
-  it("Should return true", async () => {
+  it("Verifies a proof", async () => {
     const { groth } = await loadFixture(deployGrothFeature);
     await groth.verifyProof(proof, verify_inputs, vkStruct);
     expect(true).to.equal(await groth.pairingResult());
