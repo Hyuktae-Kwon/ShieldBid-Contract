@@ -8,9 +8,9 @@ contract Auction {
 
     mapping (address => string) commitmentList;
 
-    constructor(string memory _auctionId) {
+    constructor(string memory _auctionId, address _consignorId) {
         auctionId = _auctionId;
-        consignorId = msg.sender;
+        consignorId = _consignorId;
     }
 
     function getProductId() public view returns (string memory) {
