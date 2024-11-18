@@ -2,19 +2,19 @@
 pragma solidity ^0.8.27;
 
 contract Auction {
-    string productId;
+    string auctionId;
     address consignorId;
     bool isClosed = false;
 
     mapping (address => string) commitmentList;
 
-    constructor(string memory _productId) {
-        productId = _productId;
+    constructor(string memory _auctionId) {
+        auctionId = _auctionId;
         consignorId = msg.sender;
     }
 
     function getProductId() public view returns (string memory) {
-        return productId;
+        return auctionId;
     }
 
     function getConsignorId() public view returns (address) {
