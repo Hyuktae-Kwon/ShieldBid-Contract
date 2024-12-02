@@ -1,5 +1,5 @@
 import { ethers } from "hardhat";
-import { auction_id, consignor_id } from "../test/jsons/create_auction.json";
+import { auction_id, consignor_id } from "../jsons/create_auction.json";
 
 async function main(auction_id: string, _consignorId: string) {
   const [deployer] = await ethers.getSigners();
